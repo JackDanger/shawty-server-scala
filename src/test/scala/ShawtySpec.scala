@@ -12,6 +12,7 @@ class ShawtySpec extends ScalatraFunSuite with ShouldMatchers {
     get("/") {
       status should equal (200)
       body should include ("to save a url")
+      body should include ("localhost")
     }
   }
 
