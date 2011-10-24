@@ -28,10 +28,18 @@ class ShawtySpec extends ScalatraFunSuite with ShouldMatchers {
       response.getHeader("Location") should equal ("http://example.com/page.html")
     }
   }
+
   test("POST /:url for an existing URL") {
     post("/http://example.com/page.html") {
       status should equal (201)
       response.getHeader("Location") should equal ("http://example.com/page.html")
     }
   }
+
+  test("GET /:missing_short") {
+    get("/missing") {
+      status should equal (404)
+    }
+  }
+
 }
